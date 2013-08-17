@@ -14,7 +14,7 @@ How It Works
 1. mkdir app
 2. touch app/__init__.py
 4. mkdir app/static
-4. python fuqit.py app 0.0.0.0 8080
+4. python fuqit.py app 0.0.0.0 8080 ''
 5. Put .py files or "anything else" into app.
 6. The .py files need a run function.  It gets variables.
 7. Anything else is a jinja2 template.
@@ -51,7 +51,7 @@ Using It
 You can play with the example by doing this::
 
     export PYTHONPATH=.
-    python fuqit/server.py app 127.0.0.1 8000
+    python fuqit/server.py app 127.0.0.1 8000 ''
 
 Then go to http://127.0.0.1:8000/ and you'll get my little demo testing app.
 It's in the app directory and just has some files for testing the rendering.
