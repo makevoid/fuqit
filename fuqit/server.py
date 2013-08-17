@@ -50,10 +50,20 @@ class FuqitHandler(BaseHTTPRequestHandler):
 
 if __name__ == '__main__':
     app_path = sys.argv[1]
-    host = sys.argv[2]
-    port = int(sys.argv[3])
+    len = len(sys.argv)
+    if len <= 2:
+      host = "127.0.0.1"
+    else: 
+      host = sys.argv[2]
+    if len <= 3:
+      port = 8000
+    else:  
+      port = int(sys.argv[3])
     server_address = (host, port)
-    referer = sys.argv[4]
+    if len <= 4:
+      referer = ""
+    else:
+      referer = sys.argv[4]
 
     app = web.App(app_path, allowed_referer=referer)
 
