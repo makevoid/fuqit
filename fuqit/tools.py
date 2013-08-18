@@ -23,40 +23,40 @@ __all__ = ['module']
 mimetypes.init()
 
 def module(name):
-    themodule = import_module("." + name, package="app")
-    return themodule
+  themodule = import_module("." + name, package="app")
+  return themodule
 
 def build_context(params, handler):
-    variables = {'web': 
-                 {'params': params,
-                  'headers': handler.headers,
-                  'path': handler.path,
-                  'method': handler.command,
-                  'client_address': handler.client_address,
-                  'request_version': handler.request_version,
-                 },
-                 'module': module,
-                }
-    return variables
+  variables = {'web': 
+         {'params': params,
+          'headers': handler.headers,
+          'path': handler.path,
+          'method': handler.command,
+          'client_address': handler.client_address,
+          'request_version': handler.request_version,
+         },
+         'module': module,
+        }
+  return variables
 
 def parse_request(path, request_body):
-    request_params = {}
+  request_params = {}
 
-    if '?' in path:
-        path, params = path.split('?', 1)
-        params = cgi.parse_qsl(params)
-        request_params.update(params)
+  if '?' in path:
+    path, params = path.split('?', 1)
+    params = cgi.parse_qsl(params)
+    request_params.update(params)
 
-    if request_body:
-        params = cgi.parse_qsl(request_body)
-        request_params.update(params)
+  if request_body:
+    params = cgi.parse_qsl(request_body)
+    request_params.update(params)
 
-    return path, request_params
+  return path, request_params
 
 
 def make_ctype(ext, default_mtype):
-    mtype = mimetypes.types_map.get(ext, default_mtype)
-    return {'Content-Type': mtype}
+  mtype = mimetypes.types_map.get(ext, default_mtype)
+  return {'Content-Type': mtype}
 
 
 

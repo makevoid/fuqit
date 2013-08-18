@@ -19,55 +19,55 @@ from BaseHTTPServer import HTTPServer, BaseHTTPRequestHandler
 from fuqit import web, tools
 
 DEFAULT_HEADERS = {
-    'Content-type': 'text/plain'
+  'Content-type': 'text/plain'
 }
 
 class FuqitHandler(BaseHTTPRequestHandler):
-    def transform_request(self, request_body=None):
-        path, params = tools.parse_request(self.path, request_body)
-        context = tools.build_context(params, self)
-        body, code, headers = app.process(self.command, path, params, context)
-        self.generate_response(body, code, headers)
+  def transform_request(self, request_body=None):
+    path, params = tools.parse_request(self.path, request_body)
+    context = tools.build_context(params, self)
+    body, code, headers = app.process(self.command, path, params, context)
+    self.generate_response(body, code, headers)
 
-    def do_GET(self):
-        self.transform_request()
+  def do_GET(self):
+    self.transform_request()
 
-    def do_POST(self):
-        clength = int(self.headers['content-length'])
-        request_body = self.rfile.read(clength)
-        self.transform_request(request_body)
+  def do_POST(self):
+    clength = int(self.headers['content-length'])
+    request_body = self.rfile.read(clength)
+    self.transform_request(request_body)
 
-    def generate_response(self, body, code, headers):
-        headers = headers or DEFAULT_HEADERS
+  def generate_response(self, body, code, headers):
+    headers = headers or DEFAULT_HEADERS
 
-        self.send_response(code)
+    self.send_response(code)
 
-        for header, value in headers.items():
-            self.send_header(header, value)
-        self.end_headers()
+    for header, value in headers.items():
+      self.send_header(header, value)
+    self.end_headers()
 
-        self.wfile.write(body)
+    self.wfile.write(body)
 
 if __name__ == '__main__':
-    app_path = sys.argv[1]
-    len = len(sys.argv)
-    if len <= 2:
-      host = "127.0.0.1"
-    else: 
-      host = sys.argv[2]
-    if len <= 3:
-      port = 8000
-    else:  
-      port = int(sys.argv[3])
-    server_address = (host, port)
-    if len <= 4:
-      referer = ""
-    else:
-      referer = sys.argv[4]
+  app_path = sys.argv[1]
+  len = len(sys.argv)
+  if len <= 2:
+    host = "127.0.0.1"
+  else: 
+    host = sys.argv[2]
+  if len <= 3:
+    port = 8000
+  else:  
+    port = int(sys.argv[3])
+  server_address = (host, port)
+  if len <= 4:
+    referer = ""
+  else:
+    referer = sys.argv[4]
 
-    app = web.App(app_path, allowed_referer=referer)
+  app = web.App(app_path, allowed_referer=referer)
 
-    httpd = HTTPServer(server_address, FuqitHandler)
-    #TODO: uh...how do i give my server stuff to give the handler?
-    httpd.serve_forever()
+  httpd = HTTPServer(server_address, FuqitHandler)
+  #TODO: uh...how do i give my server stuff to give the handler?
+  httpd.serve_forever()
 

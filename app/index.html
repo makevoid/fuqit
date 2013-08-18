@@ -1,26 +1,22 @@
-<html>
-    <body>
-        <h1>The FuqIt Web Framework</h1>
+{% extends "layout.html" %}
+{% block content %}
+  {{ super() }}
+  <ol>
+    <li><a href="/test">/test</a></li>
+    <li><a href="/files/test.html">/files/test.html</a></li>
+    <li><a href="/files/">/files/</a></li>
+    <li><a href="/files">/files</a></li>
+    <li><a href="/form?this=that&those=them">/form GET params</a></li>
+    <li><a href="/files/test.html?this=that&those=them">/files/test.html GET params</a></li>
+  </ol>
 
-       
+  <form action="/form" method="POST">
+    Your name: <input name="name">
+    <input type="submit">
+  </form>
 
-        <ol>
-            <li><a href="/test">/test</a>
-            <li><a href="/files/test.html">/files/test.html</a>
-            <li><a href="/files/">/files/</a>
-            <li><a href="/files">/files</a>
-            <li><a href="/form?this=that&those=them">/form GET params</a>
-            <li><a href="/files/test.html?this=that&those=them">/files/test.html GET params</a>
-        </ol>
-
-        <form action="/form" method="POST">
-            Your name: <input name="name">
-            <input type="submit">
-        </form>
-
-        <form action="/files/test.html" method="POST">
-            Your name: <input name="name">
-            <input type="submit">
-        </form>
-    </body>
-</html>
+  <form action="/files/test.html" method="POST">
+    Your name: <input name="name">
+    <input type="submit">
+  </form>
+{% endblock %}
