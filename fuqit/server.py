@@ -25,7 +25,8 @@ DEFAULT_HEADERS = {
 class FuqitHandler(BaseHTTPRequestHandler):
   def transform_request(self, request_body=None):
     path, params = tools.parse_request(self.path, request_body)
-    context = tools.build_context(params, self)
+    params["app"] = app
+    context = tools.build_context(params, app, self)
     body, code, headers = app.process(self.command, path, params, context)
     self.generate_response(body, code, headers)
 
@@ -64,7 +65,7 @@ if __name__ == '__main__':
     referer = ""
   else:
     referer = sys.argv[4]
-
+    
   app = web.App(app_path, allowed_referer=referer)
 
   httpd = HTTPServer(server_address, FuqitHandler)

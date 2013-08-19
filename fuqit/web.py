@@ -72,6 +72,18 @@ class App(object):
     base, ext = os.path.splitext(name[1:])
     context = RequestDict(variables['web'])
     base = base.replace('/', '.')
+    
+    # TODO: 
+    
+    # bla = []
+    # base = "asd.bla"
+    # list = base.split(".")
+    # bla = list[0:-1]
+    # print(bla)
+      
+    # for asd in range(0, len(list))
+    # list[]
+    
     try:
       target = tools.module(base)
     except ImportError:

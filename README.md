@@ -1,3 +1,8 @@
+screencasts blog/site
+
+-------
+
+
 The FuqIt Web Framework
 =======================
 
