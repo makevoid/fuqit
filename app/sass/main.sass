@@ -6,6 +6,7 @@
 a
   text-decoration: none
 
+$light: #FFF
 $light_bg: #DDD
 $main: #C00
 
@@ -26,17 +27,33 @@ a:hover
 iframe
   width: 100%
 
-.term
-  width: 45%
+.showterms
+  .term
+    width: 45%
 
-  margin: 0 1.5% 1%
+    margin: 0 4% 2% 0
 
-  height: 300px
-  float: left
+    float: left
+    iframe
+      height: 320px
 
 @media (max-width: 700px)
+  .showterms
+    .term
+      width: 100%
+      margin: 0 0 2.5%
+      iframe
+        height: 270px
 
-  .term
-    width: 100%
-    margin: 0 0 2.5%
-    height: 250px
+.term .term
+  iframe
+    height: 500px
+
+.btn
+  background: $main
+  border-radius: 10px
+  color: $light
+  padding: 4px 10px
+  &:hover
+    color: $light
+    background: $main + #222

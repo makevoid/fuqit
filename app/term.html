@@ -1,0 +1,12 @@
+{% extends "layout.html" %}
+{% block content %}
+  <a href="/" class="btn">&lt; back</a>
+  <section class="term">
+    <article class="term">
+      <h1>
+        <a href="/terms/{{ term.title_url }}">{{ term.title }}</a>
+      </h1>
+      <iframe src="http://showterm.io/{{ term.id }}#fast"></iframe>
+    </article>
+  </section>
+{% endblock %}
