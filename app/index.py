@@ -11,7 +11,7 @@ def run(web):
   # tmpl = env.get_template('app/terms.html')
   # content = tmpl.render(vars)
 
-  
+
   # template = open("app/terms.html").read()
   # template = Template(template)
   # content = template.render(name='John Doe')

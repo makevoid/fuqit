@@ -5,6 +5,10 @@ body {
   background: #dddddd;
   margin: 20px 5%; }
 
+h1 span {
+  display: block;
+  font-size: 65%; }
+
 a, h1 {
   color: #cc0000; }
 
