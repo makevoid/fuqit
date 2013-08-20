@@ -1,16 +1,16 @@
 # Fuqit Web Framework
 # Copyright (C) 2013  Zed A. Shaw
-# 
+#
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU Affero General Public License as published by
 # the Free Software Foundation, either version 3 of the License, or
 # (at your option) any later version.
-# 
+#
 # This program is distributed in the hope that it will be useful,
 # but WITHOUT ANY WARRANTY; without even the implied warranty of
 # MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 # GNU Affero General Public License for more details.
-# 
+#
 # You should have received a copy of the GNU Affero General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
@@ -25,7 +25,6 @@ DEFAULT_HEADERS = {
 class FuqitHandler(BaseHTTPRequestHandler):
   def transform_request(self, request_body=None):
     path, params = tools.parse_request(self.path, request_body)
-    params["app"] = app
     context = tools.build_context(params, app, self)
     body, code, headers = app.process(self.command, path, params, context)
     self.generate_response(body, code, headers)
@@ -54,18 +53,18 @@ if __name__ == '__main__':
   len = len(sys.argv)
   if len <= 2:
     host = "127.0.0.1"
-  else: 
+  else:
     host = sys.argv[2]
   if len <= 3:
     port = 8000
-  else:  
+  else:
     port = int(sys.argv[3])
   server_address = (host, port)
   if len <= 4:
     referer = ""
   else:
     referer = sys.argv[4]
-    
+
   app = web.App(app_path, allowed_referer=referer)
 
   httpd = HTTPServer(server_address, FuqitHandler)
