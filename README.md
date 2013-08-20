@@ -1,4 +1,12 @@
-screencasts blog/site
+# VoidCasts
+### Sceencasts blog/site
+
+### TODO:
+
+- resize iframes by height
+- use screenshots instead of iterms
+- fix showterm slider / play (and maybe host it myself)
+
 
 -------
 
