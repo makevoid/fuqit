@@ -1,0 +1,12 @@
+{% extends "layout.html" %}
+{% block content %}
+  <section class="collection_name">
+    {% for model in collection_name %}
+      <article class="model">
+        <h1>
+          {{ model.title }}
+        </h1>
+      </article>
+    {% endfor %}
+  </section>
+{% endblock %}

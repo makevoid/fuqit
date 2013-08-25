@@ -1,0 +1,61 @@
+// fixing css terms with a preprocessor (sass, less, etc...) to have +stacks, +bg, +left, +right .... that make more sense than css keywords (tokens)
+@import "mixins"
+
+// reset
+
+a
+  text-decoration: none
+
+// colors & layout variables
+
+$light: #FFF
+$light_bg: #DDD
+$main: #C00
+
+// main
+
+body
+  +bg($light_bg)
+  margin: 20px 5%
+
+h1 span
+  +stacks
+  font-size: 65%
+
+a, h1
+  color: $main
+
+a:hover
+  color: $main + #222
+
+iframe
+  width: 100%
+
+.showterms
+  .term
+    width: 45%
+    margin: 0 4% 2% 0
+    +left
+    iframe
+      height: 320px
+
+@media (max-width: 700px)
+  .showterms
+    .term
+      width: 100%
+      margin: 0 0 2.5%
+      iframe
+        height: 270px
+
+.term .term
+  iframe
+    height: 500px
+
+.btn
+  +bg($main)
+  +rounded(10px)
+  color: $light
+  padding: 4px 10px
+  &:hover
+    color: $light
+    +bg($main + #222)
