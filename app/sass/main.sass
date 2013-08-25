@@ -17,6 +17,7 @@ $main: #C00
 body
   +bg($light_bg)
   margin: 20px 5%
+  font-size: 110%
 
 h1 span
   +stacks
@@ -28,29 +29,6 @@ a, h1
 a:hover
   color: $main + #222
 
-iframe
-  width: 100%
-
-.showterms
-  .term
-    width: 45%
-    margin: 0 4% 2% 0
-    +left
-    iframe
-      height: 320px
-
-@media (max-width: 700px)
-  .showterms
-    .term
-      width: 100%
-      margin: 0 0 2.5%
-      iframe
-        height: 270px
-
-.term .term
-  iframe
-    height: 500px
-
 .btn
   +bg($main)
   +rounded(10px)
@@ -59,3 +37,9 @@ iframe
   &:hover
     color: $light
     +bg($main + #222)
+
+.collection .model
+  font-size: 1.4em
+
+.model .model
+  font-size: 1.5em

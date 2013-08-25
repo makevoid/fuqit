@@ -3,7 +3,8 @@ a {
 
 body {
   background: #dddddd;
-  margin: 20px 5%; }
+  margin: 20px 5%;
+  font-size: 110%; }
 
 h1 span {
   display: block;
@@ -15,25 +16,6 @@ a, h1 {
 a:hover {
   color: #ee2222; }
 
-iframe {
-  width: 100%; }
-
-.showterms .term {
-  width: 45%;
-  margin: 0 4% 2% 0;
-  float: left; }
-  .showterms .term iframe {
-    height: 320px; }
-
-@media (max-width: 700px) {
-  .showterms .term {
-    width: 100%;
-    margin: 0 0 2.5%; }
-    .showterms .term iframe {
-      height: 270px; } }
-.term .term iframe {
-  height: 500px; }
-
 .btn {
   background: #cc0000;
   border-radius: 10px;
@@ -42,3 +24,9 @@ iframe {
   .btn:hover {
     color: white;
     background: #ee2222; }
+
+.collection .model {
+  font-size: 1.4em; }
+
+.model .model {
+  font-size: 1.5em; }

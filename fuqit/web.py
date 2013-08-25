@@ -74,18 +74,18 @@ class App(object):
         base = base.replace('/', '.')
         try:
             target = tools.module(base)
-        except ImportError:
-            return self.render_error(404, "Not Found", variables=variables)
+        # except ImportError:
+        #     return self.render_error(404, "Not Found", variables=variables)
 
         # try parent dir (to achieve /posts/* route)
-        # except ImportError:
-        #     try:
-        #         list = base.split(".")
-        #         list = list[0:-1]
-        #         base = ".".join(list)
-        #         target = tools.module(base)
-        #     except ImportError:
-        #         return self.render_error(404, "Not Found", variables=variables)
+        except ImportError:
+            try:
+                list = base.split(".")
+                list = list[0:-1]
+                base = ".".join(list)
+                target = tools.module(base)
+            except ImportError:
+                return self.render_error(404, "Not Found", variables=variables)
 
 
         try:

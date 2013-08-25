@@ -1,10 +1,10 @@
 {% extends "layout.html" %}
 {% block content %}
-  <section class="collection_name">
-    {% for model in collection_name %}
+  <section class="collection">
+    {% for model in collection %}
       <article class="model">
         <h1>
-          {{ model.title }}
+          <a href="/collection/{{ model.id }}">{{ model.title }}</a>
         </h1>
       </article>
     {% endfor %}

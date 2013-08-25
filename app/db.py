@@ -1,4 +1,4 @@
-collection_name = [
+collection = [
   {
     "title": "Hello world",
     "id": 1

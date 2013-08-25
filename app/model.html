@@ -1,11 +1,13 @@
 {% extends "layout.html" %}
 {% block content %}
   <a href="/" class="btn">&lt; back</a>
+
   <section class="model">
     <article class="model">
       <h1>
-        <a href="/collection_name/{{ term.id }}">{{ term.title }}</a>
+        <a href="/collection/{{ model.id }}"> {{ model.title }}</a>
       </h1>
+      <p>....</p>
     </article>
   </section>
 {% endblock %}

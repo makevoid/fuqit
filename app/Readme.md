@@ -6,7 +6,7 @@ this is your first fuqit webapp! it's awesome, and you can do dafuq you want! en
 the main example it's a collection taken from a db (that's just an array of dictionaries)
 
 
-when you find something name "collection_name" it's the name of the collection (for example "posts") and "model" also, has to be replaced with the singular version (e.g. "post")
+when you find something name "collection" it's the name of the collection (for example "posts") and "model" also, has to be replaced with the singular version (e.g. "post")
 
 I added a guardfile for automatic compiling of SASS to CSS
 
