@@ -26,8 +26,8 @@ def module(name):
     themodule = import_module("." + name, package="app")
     return themodule
 
-def build_context(params, handler):
-    variables = {'web': 
+def build_context(params, app, handler):
+    variables = {'web':
                  {'params': params,
                   'headers': handler.headers,
                   'path': handler.path,
@@ -36,6 +36,7 @@ def build_context(params, handler):
                   'request_version': handler.request_version,
                  },
                  'module': module,
+                 'app': app
                 }
     return variables
 
